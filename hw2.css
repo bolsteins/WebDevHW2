@@ -1,0 +1,229 @@
+/* set everything for body */
+body {
+    background-image: url(images/pexels-tessa-k-221622-896673.jpg);
+    font-family: "Monaco", "Lucida Console", monospace;
+
+    display: grid;
+    grid-gap: 5px;
+
+    /* starting with smartphone layout */
+    grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer"
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    background: #99ccff;
+    padding: 10px;
+    text-align: center;
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    grid-template-areas:
+        "brand brand"
+        "nav tools";
+}
+
+.brand {
+    background: #77aaff;
+    border-radius: 8px;
+    grid-area: brand;
+}
+nav {
+    background: #77aaff;
+    border-radius: 8px;
+    grid-area: nav;
+}
+
+.tools {
+    background: #77aaff;
+    border-radius: 8px;
+    grid-area: tools;
+}
+
+.hero {
+    background: #ffef49;
+    padding: 20px;
+    grid-area: hero;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "action";
+}
+
+.action {
+    background: #fddb1f;
+    padding: 5px;
+    grid-area: action;
+}
+
+.hero .feature {
+    background: #fddb1f;
+    grid-area: herofeat;
+    display: none;
+}
+
+.desktop-ad {
+    display: none;
+}
+
+main {
+    background: #5e8d5a;
+    padding: 10px;
+    grid-area: body;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "feature"
+        "mobile-ad"
+        "listing";
+}
+
+.feature {
+    background: #c6d7b9;
+    padding: 10px;
+    grid-area: feature;
+}
+
+.listing {
+    background: #c6d7b9;
+    padding: 10px;
+    grid-area: listing;
+}
+
+.mobile-ad {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    display: none;
+}
+
+footer {
+    padding: 10px;
+    margin: 0 auto;
+    grid-area: footer;
+}
+
+/* tablet layout */
+@media screen and (min-width: 576px) {
+    @media (min-width: 576px) {
+    body {
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "sidebar"
+            "footer";
+    }
+
+    /* change layout for header */
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+
+    /* change layout for hero */
+    .hero {
+        grid-template-areas:
+            "herofeat"
+            "action";
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+    /* change layout for main */
+    main {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+            "feature mobile-ad"
+            "listing listing";
+    }
+
+    /* change sidebar */
+    .sidebar {
+        background: #ffa3b1;
+        padding: 5px;
+        grid-area: sidebar;
+
+        display: block;
+    }
+    
+    .sidebar .feature {
+        background: #ffccd5;
+        text-align: center;
+    }
+
+    .mobile-ad {
+        width: 200px;
+        margin: 0 auto;
+    }
+}
+
+/* desktop layout */
+@media screen and (min-width: 992px) {
+    body {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "header header header header"
+            "hero hero hero ad"
+            "body body body sidebar"
+            "footer footer footer footer"
+    }
+
+    /* change layout for header */
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "herofeat action"
+    }
+
+    .action{
+        padding: 20px;
+    }
+
+    .hero .feature {
+        padding: 20px;
+        display: block;
+    }
+
+    /* change layout for main */
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .mobile-ad {
+        display: none;
+    }
+
+    .desktop-ad {
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .sidebar {
+        display: block;
+        display: flex;
+        align-content: center;
+        align-items: center;
+    }
+}}
